@@ -5,6 +5,16 @@ input.onButtonPressed(Button.A, function () {
         basic.pause(100)
     }
 })
+input.onButtonPressed(Button.AB, function () {
+    direction = 1
+    strip.showRainbow(1, 360)
+    strip.easeBrightness()
+    while (true) {
+        strip.rotate(direction)
+        strip.show()
+        basic.pause(100)
+    }
+})
 input.onButtonPressed(Button.B, function () {
     direction = -1
     for (let index = 0; index <= strip.length(); index++) {
@@ -19,6 +29,7 @@ let direction = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P8, 32, NeoPixelMode.RGB)
 basic.showIcon(IconNames.Heart)
+direction = 1
 strip.showRainbow(1, 360)
 strip.easeBrightness()
 basic.pause(1000)
